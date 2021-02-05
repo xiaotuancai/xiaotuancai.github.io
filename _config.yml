@@ -2,13 +2,13 @@ markdown: kramdown
 kramdown:
   input: GFM
 permalink: /:year/:month/:title
-title: 东篱茶馆
-url: http://tanwubin.github.io
-subscribe: http://tanwubin.github.io/feed
+title: 小团菜
+url: http://xiaotuancai.github.io
+subscribe: http://xiaotuancai.github.io/feed
 exclude: [ README.md, newpost.rb ]
-domain: tanwubin.github.io
-author: tanwubin
-email: brieftime@icloud.com
+domain: xiaotuancai.github.io
+author: xiaotuancai
+email: litwer@126.com
 safe: true
 excerpt_separator: "&nbsp;"
 highlight: true
