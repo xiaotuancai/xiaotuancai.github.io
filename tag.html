@@ -1,0 +1,50 @@
+---
+layout: default
+title: 茶品-Tags
+permalink: /tag/
+---
+<div class="wrapperpage">
+{% for tag in site.tags %}
+<a name="{{ tag | first }}"><h2>{{ tag | first }}</h2></a>
+    <!--<ul  class="unstyled">-->
+    <ul class="postsList">
+    {% for post in tag.last %}
+      <!--<li><a href="{{ post.url }}">{{ post.title }}</a></li>-->
+      <li><span class="hvr-icon-push"><i class="fa fa-calendar hvr-icon" aria-hidden="true"></i>&nbsp;{{ post.date | date: "%b %d, %Y" }}</span> <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endfor %}
+<script>
+    $(document).ready(function() {
+    $.ajax({
+        type: "POST",
+        url: "https://cardbang.com/BlogCounter/counteradd.php",
+        data: {title: "{{ page.title }}", url: "{{ page.url }}"},
+        datatype: "html",
+
+        success: function (data) {
+        },
+        error: function () {
+        }
+    });
+});
+</script>
+<div id="container"></div>
+
+<link rel="stylesheet" href="/assets/gitment/node_modules/gitment/style/default.css">
+<script src="/assets/gitment/node_modules/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  // id: '', // 可选。默认为 location.href
+  id: '{{ page.title }}',
+  owner: 'tanwubin',
+  repo: 'tanwubin.github.io',
+  oauth: {
+    client_id: '60a184657a07c169db75',
+    client_secret: 'b467963644f43e9fe93d14a6d2d3fdac246e0f34',
+  },
+})
+gitment.render('container')
+</script>
+</div>
+

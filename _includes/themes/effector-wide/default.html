@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+<head>
+  <meta name="baidu-site-verification" content="wsVJtKBY17" />
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>{{ page.title }}</title>
+  <meta name="author" content="{{ site.author }}"/>
+  <!--<link rel="stylesheet" type="text/css" href="/assets/css/bootstrap-3.3.7-dist/css/bootstrap.min.css">-->
+  <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/assets/css/syntax.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/effector-wide.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/hover-min.css">
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS for {{ site.title }}" href="/feed/">
+</head>
+<div class="nav">
+  <a href="/" class="hvr-pulse-grow">上茶-Home</a>
+  <a href="/archive" class="hvr-wobble-horizontal">茶坊-Archive</a>
+  <a href="/tag" class="hvr-wobble-top">茶品-Tags</a>
+  <a href="/todo" class="hvr-wobble-bottom">茶园-ToDo</a>
+  <a href="/links" class="hvr-wobble-skew">茶香-Links</a>
+  <a href="/teawaiter" class="hvr-buzz  ">茶农-Grower</a>
+  <a href="/talk" class="hvr-pulse">茶声-Message</a>
+
+<!--<a href="/feed/">订阅-Subscribe</a>-->
+</div>
+  <div class="container">
+      <!--
+      <h1 class="sitename">
+           <a href="/" > <img src="/upload/image/headimg.jpg"
+         width="100"
+         height="100">	  </a>
+      </h1>
+
+      <img src="/upload/image/blogtop.jpeg">
+      <h1 class="sitename"><hr style="height:1px;border:none;border-top:1px dashed #bbbbbb;"/></h1>
+
+      <hr style="height:1px;border:none;border-top:1px dashed #bbbbbb;"/>-->
+{{ content }}
+      <!--
+      <div class="wrapper">
+        <span class="label label-important">Permanent link </span> <a href=" http://tanwubin.github.io{{ page.url }}"> http://tanwubin.github.io{{ page.url }}</a><small class="pull-right">{{ page.date | date:"%b %d, %Y" }}</small>
+      </div>
+      -->
+</div>
+{% if page.url != "/" %}
+{% endif %}
+
+</body>
+</html>

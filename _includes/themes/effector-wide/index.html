@@ -1,0 +1,97 @@
+{% include themes/effector-wide/authorized.html %}
+<div class="wrapper">
+<ul class="postsList">
+
+{% for post in site.posts %}
+
+    {% if post.top != true %}
+        {% continue %}
+    {% endif %}
+    <li><span class="hvr-icon-push"><i class="fa fa-calendar hvr-icon" aria-hidden="true"></i>&nbsp;{{ post.date | date: "%b %d, %Y" }}</span>
+    <a href="{{ post.url }}" class="posttitle hvr-icon-bounce"><b>[置顶&nbsp;<i class="fa fa-thumbs-o-up hvr-icon" style="color:red;"></i>&nbsp;]{{ post.title }}</b></a>
+    {{ post.excerpt }}
+    <br>
+    <span class="tags hvr-icon-push"><i class="fa fa-folder-open-o hvr-icon" aria-hidden="true"></i>&nbsp;
+    {% for tag in post.tags %}
+    <a class="labeltag label-important" href="/tag/#{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+    </span>
+    <span class="views hvr-icon-push">&nbsp;<i class="fa fa-eye hvr-icon" aria-hidden="true"></i>
+
+    <a class="labeltag label-important" id={{ post.id | remove:'/' }}></a>
+    </span>
+    <script>
+        $.ajax({
+            type:"POST",
+            url:"https://cardbang.com/BlogCounter/counterget.php",
+            data:{title:"{{ post.title }}",url:"{{ post.url }}"},
+            datatype: "html",
+
+            success:function(data){
+                $("#{{post.id | remove:'/'}}").html(data);
+            },
+            error: function(){
+                $("#{{post.id | remove:'/'}}").html(0);
+            }
+        });
+    </script>
+    <span class="readall hvr-icon-push"><i class="fa fa-hand-o-right hvr-icon" aria-hidden="true"></i><a class="label label-important" href="{{ post.url }}"> <font color="white">阅读全文</font></a></span>
+</li><br>
+{% endfor %}
+
+{% for post in site.posts limit:10 %}
+    {% if post.top == true %}
+        {% continue %}
+    {% endif %}
+<li><span class="hvr-icon-push"><i class="fa fa-calendar hvr-icon" aria-hidden="true"></i>&nbsp;{{ post.date | date: "%b %d, %Y" }}</span>
+    <a href="{{ post.url }}" class="posttitle"><b>{{ post.title }}</b></a>
+    {{ post.excerpt }}
+    <br>
+    <span class="tags hvr-icon-push"><i class="fa fa-folder-open-o hvr-icon" aria-hidden="true"></i>&nbsp;
+    {% for tag in post.tags %}
+    <a class="labeltag label-important" href="/tag/#{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+    </span>
+    <span class="views hvr-icon-push">&nbsp;<i class="fa fa-eye hvr-icon" aria-hidden="true"></i>
+
+    <a class="labeltag label-important" id={{ post.id | remove:'/' }}></a>
+    </span>
+    <script>
+        $.ajax({
+            type:"POST",
+            url:"https://cardbang.com/BlogCounter/counterget.php",
+            data:{title:"{{ post.title }}",url:"{{ post.url }}"},
+            datatype: "html",
+
+            success:function(data){
+                $("#{{post.id | remove:'/'}}").html(data);
+            },
+            error: function(){
+                $("#{{post.id | remove:'/'}}").html(0);
+            }
+        });
+    </script>
+    <span class="readall hvr-icon-push"><i class="fa fa-hand-o-right hvr-icon" aria-hidden="true"></i><a class="label label-important" href="{{ post.url }}"> <font color="white">阅读全文</font></a></span>
+</li><br>
+{% endfor %}
+
+<li><a class="btn"  href="/archive/">更多-More</a>&nbsp;&nbsp; <a class="btn" href="/feed/" target="_blank">订阅-Subscribe</a></li>
+<br>
+
+</ul>
+</div>
+<script>
+    $(document).ready(function() {
+    $.ajax({
+        type: "POST",
+        url: "https://cardbang.com/BlogCounter/counteradd.php",
+        data: {title: "首页", url: "/"},
+        datatype: "html",
+
+        success: function (data) {
+        },
+        error: function () {
+        }
+    });
+});
+</script>
