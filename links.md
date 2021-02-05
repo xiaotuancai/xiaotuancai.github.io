@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 茶香-Links
+title: 小团菜的博客-链接
 permalink: /links/
 ---
 
